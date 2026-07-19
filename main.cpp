@@ -4,6 +4,8 @@
 
 typedef std::string string;
 
+// git bash test
+
 class File {
     string name;
     string content;
