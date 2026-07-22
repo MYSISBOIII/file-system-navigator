@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <string.h>
+#include <string>
 
 typedef std::string string;
 
@@ -105,17 +105,21 @@ int main() {
     Directory dir("/");
 
     bool notExit = true;
-    int action;
+    string input;
 
     while (notExit) {
         std::cout << "Choose your action: ";
-        std::cin >> action;
+        std::cin >> input;
 
-        if (action == 0) {
+        if (input == "exit") {
             notExit = false;
         }
         else {
-            
+            std::vector<string> arr = string_explode(input);
+
+            int index = std::stoi(arr[0]);
+
+            cmds[index](arr[1], arr[2], dir);
         }
     }
     
