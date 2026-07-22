@@ -83,12 +83,12 @@ void(*cmds[5])(string, string, Directory&) {
 };
 
 std::vector<string> string_explode(string str) {
-    std::vector<string> arr; // maybe make an actual array for once
+    std::vector<string> arr; // use C style array here
  
     string container;
 
-    for (std::string::iterator it = str.begin(); it != str.end(); ++it) {
-        if (*it == ' ') {
+    for (std::string::iterator it = str.begin(); it != str.end() + 1; ++it) {
+        if (it == str.end() || *it == ' ') {
             arr.push_back(container);
             container.clear();
         }
@@ -96,7 +96,7 @@ std::vector<string> string_explode(string str) {
             container.push_back(*it);
         }
     }
-
+    
     return arr;
 }
 
